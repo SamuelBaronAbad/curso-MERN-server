@@ -10,7 +10,7 @@ mongoose.connect(`mongodb://${IP_SERVER}:${PORT_DB}/samuelbaronabad`,
         } else {
             console.log("La conexión a la BBDD es correcta");
 
-            app.listen(port, () => {
+            app.listen(PORT, () => {
                 console.log("######################");
                 console.log("###### API REST ######");
                 console.log("######################");
