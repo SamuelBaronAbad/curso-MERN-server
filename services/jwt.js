@@ -7,7 +7,7 @@ const user = require("../models/user");
 const SECRET_KEY = "hF48d9Lop4SK633Wep7seA4aqn7f4d5f1d89fvou21j";
 
 // exports.nombreFuncion = function (param) {} Otra forma de crear y exportar funciones
-// Creaciond de tokens para login (ver docum en la web => Yarn => jwt-simple)
+// Creacion de tokens para login (ver docum en la web => Yarn => jwt-simple)
 exports.createAccessToken = function (user) {
 
     // Token: String de datos codificados que cuando se desencripta devuelve unos datos
@@ -18,7 +18,7 @@ exports.createAccessToken = function (user) {
         name: user.name,
         lastname: user.lastname,
         email: user.email,
-        rol: user.rol,
+        role: user.role,
         createToken: moment().unix(),
         exp: moment().add(3, "hours").unix()
     }
@@ -36,7 +36,7 @@ exports.createRefreshToken = function (user) {
     return jwt.encode(payload, SECRET_KEY);
 }
 
-// Funcion para descodificar los tokens
-exports.decodeToken = function (token) {
+// Funcion para decodificar los tokens
+exports.decodedToken = function (token) {
 return jwt.decode(token, SECRET_KEY, true);
 }
